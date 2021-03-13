@@ -6,7 +6,7 @@ if __name__ == '__main__':
     problem = MyProblem()  # 生成问题对象
     """==================================种群设置==============================="""
     Encoding = 'BG'  # 编码方式
-    NIND = 100  # 种群规模
+    NIND = 200  # 种群规模
     Field = ea.crtfld(Encoding, problem.varTypes, problem.ranges, problem.borders)  # 创建区域描述器
 
     population = ea.Population(Encoding, Field, NIND)  # 实例化种群对象（此时种群还没被初始化，仅仅是完成种群对象的实例化）
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     myAlgorithm = ea.moea_NSGA2_templet(problem, population)  # 实例化一个算法模板对象
     myAlgorithm.mutOper.Pm = 0.1  # 修改变异算子的变异概率
     myAlgorithm.recOper.XOVR = 0.8  # 修改交叉算子的交叉概率
-    myAlgorithm.MAXGEN = 50  # 最大进化代数
+    myAlgorithm.MAXGEN = 25  # 最大进化代数
     myAlgorithm.logTras = 0  # 设置每多少代记录日志，若设置成0则表示不记录日志
     myAlgorithm.verbose = False  # 设置是否打印输出日志信息
     myAlgorithm.drawing = 2  # 设置绘图方式（0：不绘图；1：绘制结果图；2：绘制目标空间过程动画；3：绘制决策空间过程动画）
