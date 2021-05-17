@@ -1,5 +1,5 @@
 from collections import Counter
-from taobao import decoding
+from FJSPMK import decoding
 
 
 '''---------------------柔性车间常用目标函数-------------------------------'''
@@ -86,3 +86,18 @@ def sumloadBenchmark(os_ms, parameters):
             mac[i] += item[1]
     sumload = sum(mac)
     return sumload
+
+# （柔性+工人）费用（静态费率和动态费率）
+def cost(os_ms, parameters, MC, MD):
+    # MC 原材料费用 [1,2,3,5,9,..] （等于工件个数）
+    # MD 机器单位费率  [12,51,48，..] （等于机器个数）
+    # Time = {0: 95, 1: 9, 2: 45, 3: 52, 4: 26, 5: 56, 6: 67, 7: 45}  汇总每个机器加工时长
+    decoded = decoding.decodeBenchmark(parameters, os_ms[0], os_ms[1])
+    Time = {i:0 for i in range(len(decoded))}
+    i = 0
+    for item in decoded:
+        for info in item:
+            Time[i] += info[1]
+        i += 1
+    sumcost = sum(MC) + sum([Time[key]*MD[key] for key in Time.keys()])
+    return sumcost

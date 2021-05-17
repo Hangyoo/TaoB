@@ -2,8 +2,8 @@
 import copy
 import random
 import itertools
-from 柔性作业车间调度.FJSP import decoding
-from 柔性作业车间调度.FJSP import config
+from FJSP import decoding
+from FJSP import config
 
 #计算最大完工时间
 def timeTaken(os_ms, parameters):      #个体（[os],[ms]）

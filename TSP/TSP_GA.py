@@ -1,11 +1,11 @@
 import math
-from GA import GA
+from TSP.GA import GA
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # 读取数据
 citys = []
-f = pd.read_csv(r"C:\Users\Hangyu\PycharmProjects\TSP\city.txt",header=None,sep = ' ')
+f = pd.read_csv(r"city.txt",header=None,sep = ' ')
 for i in range(f.shape[0]):
     a ,b = f.iloc[i,[1,2]]
     citys.append((a ,b))

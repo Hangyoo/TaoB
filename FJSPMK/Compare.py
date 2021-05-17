@@ -2,11 +2,11 @@ import pickle
 import matplotlib.pyplot as plt
 
 # 读取NAGAII算法目标函数值
-with open(r'./Data/data_NSGAII.pkl', "rb") as f:
+with open(r'Data/data_NSGAII.pkl', "rb") as f:
     convergence_NSGAII = pickle.load(f)
 
 # 读取MA算法目标函数值
-with open(r'./Data/data_INSGAII.pkl', "rb") as f:
+with open(r'Data/data_INSGAII.pkl', "rb") as f:
     convergence_MA = pickle.load(f)
 
 # -----完工时间----

@@ -1,5 +1,7 @@
 import random
-from taobao import config, readtext
+from FJSPMK import readtext
+from FJSPMK import config
+
 
 #产生基于工序的编码(OS)
 def generateOS(parameters):

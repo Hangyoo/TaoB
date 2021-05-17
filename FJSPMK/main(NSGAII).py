@@ -1,26 +1,26 @@
-from taobao import covertmatrics
-from taobao import encoding, genetic, objective, readtext, decoding
-from taobao import config, Non_dominated_sorting, gantt
+from FJSPMK import encoding, objective, readtext, decoding
+from FJSPMK import genetic, config
+from FJSPMK import Non_dominated_sorting, gantt
 import matplotlib.pyplot as plt
 import pickle
 import time
 
-from taobao.record import record
+from FJSPMK.record import record
 
 """ ================= 传统FJSP + 切线时间 + 模糊加工时间 ======================"""
 
 
 # 初始参数设置在config文件中设置
 
-def main(parameters):
+def main(parameters, MC, MD):
     # 随机生成切线时间并保存到”切线时间.txt“中
     gen = 0
     NIND, MAXGEN, pc, pm = config.popSize, config.maxGen, config.pc, config.pm
     population = encoding.initializePopulation(parameters)
     best_list, best_obj = [], []
 
-    convergence = {"makespan": [], "maxload": [], "sumload": []}
-    before_value = [1e10, 1e10, 1e10]
+    convergence = {"makespan": [], "maxload": [], "sumload": [], "cost": []}
+    before_value = [1e10, 1e10, 1e10, 1e10]
 
     while gen < MAXGEN:
         print('第%d次迭代' % gen)
@@ -34,7 +34,8 @@ def main(parameters):
             makespan = objective.TimeTakenBenchmark(os_ms, parameters)  # 最大完工时间
             maxload = objective.maxloadBenchmark(os_ms, parameters)  # 最大负荷
             sumload = objective.sumloadBenchmark(os_ms, parameters)  # 总负荷
-            chroms_obj_record[i] = [makespan, maxload, sumload]
+            cost = objective.cost(os_ms, parameters, MC, MD)  # 成本
+            chroms_obj_record[i] = [makespan, maxload, sumload,cost]
 
         # 记录每代最小目标值
         convergence, before_value = record(chroms_obj_record, convergence, before_value)
@@ -80,13 +81,15 @@ def write_to_file(filename, pareto_obj, best_list):
 
 # 主函数运行
 if __name__ == '__main__':
-    patch = r'C:\Users\Hangyu\PycharmProjects\TaoB\FJSPMK\taobao\Benchmark\8_8.fjs'
+    patch = r'C:\Users\Hangyu\PycharmProjects\TaoB\FJSPMK\Benchmark\8_8.fjs'
     parameters = readtext.Readtext(patch).readtext()
-
-
+    # MC 原材料费用 [1,2,3,5,9,..] （等于工件个数）
+    # MD 机器单位费率  [12,51,48，..] （等于机器个数）
+    MC = [1, 2, 5, 4, 3, 2, 1, 8]
+    MD = [12, 11, 8, 9, 10, 13, 6, 7]
     # 记录开始时间
     start = time.time()
-    best_obj, best_list, convergence = main(parameters)
+    best_obj, best_list, convergence = main(parameters,MC,MD)
     # 确定前沿pareto数量，及其目标函数
     pareto_obj, best_list = check(best_obj, best_list)
     # 记录结束时间
@@ -94,7 +97,7 @@ if __name__ == '__main__':
     print(f'NSGAII运行时间:{end - start}s')
 
     # 保存目标函数值
-    with open(r'./Data/data_NSGAII.pkl', "wb") as f:
+    with open(r'Data/data_NSGAII.pkl', "wb") as f:
         pickle.dump(convergence, f)
 
     # 保存运行结果
@@ -128,4 +131,17 @@ if __name__ == '__main__':
     plt.ylabel("Total workload")
     plt.title("Total workload Convergence with Iteration (NSGA-II)")
     plt.savefig(r'./PictureSave/TotalWorkload_NSGAII.jpg', dpi=400)
+    plt.show()
+    # 总价格
+    plt.plot(convergence["cost"])
+    plt.xlabel("Iteration")
+    plt.ylabel("Total cost")
+    plt.title("Total cost Convergence with Iteration (NSGA-II)")
+    plt.savefig(r'./PictureSave/TotalCost_NSGAII.jpg', dpi=400)
+    plt.show()
+
+    # 绘制非支配解的在各个目标上的目标值
+    for i in pareto_obj:
+        plt.plot([1,2,3,4],i)
+    plt.title("Objective of Pareto solutions")
     plt.show()

@@ -19,4 +19,10 @@ def record(chroms_obj_record,convergence,before_value):
         before_value[2] = f3
     convergence["sumload"].append(min(f3,before_value[2]))
 
+    # 记录每代总成本
+    f4 = min([item[3] for item in chroms_obj_record.values()])
+    if f4 < before_value[3]:
+        before_value[3] = f4
+    convergence["cost"].append(min(f4, before_value[3]))
+
     return convergence,before_value

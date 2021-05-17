@@ -1,7 +1,7 @@
 import copy
 import random
 import itertools
-from FJSPMK.taobao import config
+from FJSPMK import config
 
 
 # 4.3.2 交叉操作

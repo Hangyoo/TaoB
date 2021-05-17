@@ -59,7 +59,7 @@ def draw_chart(data):
 
             # 添加标签
             width = int(rect[0].get_width())
-            Str = "OP_{}".format(op[2])
+            Str = "{}".format(op[2])
             xloc = op[0] + 0.50 * width
             clr = 'black'
             align = 'center'

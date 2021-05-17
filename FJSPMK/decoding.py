@@ -1,7 +1,3 @@
-from taobao import encoding, readtext
-from taobao import covertmatrics
-import random
-
 #分割基于机器分配的编码，划分为每个工件所需的机器
 def split_ms(parameters, ms):
     jobs_machine = []   #储存每个工件每个工序的加工机器(机器列表中位置)[[],[],[]]
@@ -44,7 +40,7 @@ def decodeBenchmark(parameters, os, ms):
         Job_process[job] += 1
         Job_before[job] = (start + prcTime)
         Machine_before[machine] = start + prcTime
-
+    #print(machine_operations)
     return machine_operations   # [[(),(),()],[],[]]
 
 def translate_decoded_to_gantt(machine_operations):

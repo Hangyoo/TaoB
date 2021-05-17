@@ -86,15 +86,16 @@ def translate_decoded_to_gantt(machine_operations):
 
 if __name__ == '__main__':
 
-    patch = r'C:\Users\Hangyu\PycharmProjects\TaoB\FJSP\FJSPBenchmark\1\8_8.fjs'
+    patch = r'C:\Users\Hangyu\PycharmProjects\FJSPP\柔性作业车间调度\FJSP\FJSPBenchmark\Brandimarte_Data\Mk01.fjs'
 
     parameters = readtext.Readtext(patch).readtext()
-    #os_ms = encoding.initializePopulation(parameters)[1]
-    os_ms = [[1,1,1,0,0],[0,2,1,1,1]]
-    (os, ms) = os_ms
-    decoded = decode(parameters, os, ms)
-    for x in decoded:
-        print(x)
+
+    # #os_ms = encoding.initializePopulation(parameters)[1]
+    # os_ms = [[1,1,1,0,0],[0,2,1,1,1]]
+    # (os, ms) = os_ms
+    # decoded = decode(parameters, os, ms)
+    # for x in decoded:
+    #     print(x)
     data = translate_decoded_to_gantt(decoded)
-    print(data)
-    gantt.draw_chart(data)
+    # print(data)
+    # gantt.draw_chart(data)
