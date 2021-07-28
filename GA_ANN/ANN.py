@@ -56,14 +56,14 @@ rf=rf.fit(x_train, y_train)
 
 
 # 在训练集上测试
-y_pred_train = rf.predict(x_train)
+y_pred_train = rf.NN_predict(x_train)
 r = r2_score(y_train,y_pred_train)
 mse = mean_squared_error(y_train,y_pred_train)
 print("ANN训练集R2:",r)
 print("ANN训练集MSE:",mse)
 
 # 在预测集上测试
-y_pred_test = rf.predict(x_test)
+y_pred_test = rf.NN_predict(x_test)
 r = r2_score(y_test,y_pred_test)
 mse = mean_squared_error(y_test,y_pred_test)
 print("_____________")
@@ -82,7 +82,7 @@ model=model.fit(x_train, y_train)
 plt.xlabel("Iteration")
 plt.ylabel("MSE")
 plt.plot(rf.loss_curve_,"r")
-plt.plot(model.loss_curve_,"b")
+plt.plot(model.loss_curve_,"end")
 plt.legend(["ANN+GA","ANN"])
 plt.show()
 

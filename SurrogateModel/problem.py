@@ -45,8 +45,8 @@ class MyProblem(ea.Problem):  # 继承Problem父类
             x3 = Vars[i, [2]][0]
             X = np.array([x1,x2,x3]).reshape(1,3)
             # 计算目标函数值
-            f1 = model1.predict(X)
-            f2 = model2.predict(X)
+            f1 = model1.NN_predict(X)
+            f2 = model2.NN_predict(X)
             F1[i,0] = f1
             F2[i,0] = f2
         pop.ObjV = np.hstack([F1, F2])  # 把求得的目标函数值赋值给种群pop的ObjV

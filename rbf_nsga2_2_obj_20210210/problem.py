@@ -55,8 +55,8 @@ class MyProblem(ea.Problem):  # 继承Problem父类
             X = np.array([x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12]).reshape(1,12)
 
             # 计算目标函数值
-            f1 = model1.predict(X)
-            f2 = model2.predict(X)
+            f1 = model1.NN_predict(X)
+            f2 = model2.NN_predict(X)
 
             F1[i,0] = f1
             F2[i,0] = f2

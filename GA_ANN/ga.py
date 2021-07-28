@@ -59,7 +59,7 @@ def crossover(parents, offspring_size):
 def mutation(offspring_crossover, mutation_percent):
     num_mutations = numpy.uint32((mutation_percent*offspring_crossover.shape[1])/100)
     mutation_indices = numpy.array(random.sample(range(0, offspring_crossover.shape[1]), num_mutations))
-    # Mutation changes a single gene in each offspring randomly.
+    # Mutation changes begin single gene in each offspring randomly.
     for idx in range(offspring_crossover.shape[0]):
         # The random value to be added to the gene.
         random_value = numpy.random.uniform(-1.0, 1.0, 1)

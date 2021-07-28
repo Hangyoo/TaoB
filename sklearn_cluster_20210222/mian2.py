@@ -13,7 +13,7 @@ birch = Birch(threshold=0.5, branching_factor=50, n_clusters=5,
 # 拟合
 model = birch.fit(X)
 # 类别估计
-labels = model.predict(X)
+labels = model.NN_predict(X)
 
 # 类别输出
 print(labels)

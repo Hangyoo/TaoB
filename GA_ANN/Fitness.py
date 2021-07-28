@@ -39,7 +39,7 @@ def fitness(weights_mat, x_train, y_train, activation="sigmoid"):
 
     rf = MLPClassifierOverride(hidden_layer_sizes=(200,100),learning_rate_init= 0.001,activation='logistic',solver='adam', alpha=1e-8,max_iter=30000)  # 神经网络
     rf=rf.fit(x_train, y_train)     # 训练分类器
-    y_pred_train = rf.predict(x_train)
+    y_pred_train = rf.NN_predict(x_train)
     r = r2_score(y_train,y_pred_train)
     accuracy = np.array([-r]*weights_mat.shape[0])
     return accuracy

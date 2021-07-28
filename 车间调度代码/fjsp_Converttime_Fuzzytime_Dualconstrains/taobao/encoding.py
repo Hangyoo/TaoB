@@ -30,8 +30,8 @@ def generateWS(parameters,OS,MS):
     # WS = []
     # set = {0: [0, 2, 3], 1: [2, 3, 1], 2: [2, 3, 0], 3: [1, 2]}  # 机器索引从0开始，工人索引从0开始，且工人数不超过机器数
     # for o in machine_list:
-    #     k = random.choice(set[o])
-    #     WS.append(k)
+    #     count = random.choice(set[o])
+    #     WS.append(count)
 
     #--------------------------------------------------------
     # 方法2：默认员工可操作所有机器

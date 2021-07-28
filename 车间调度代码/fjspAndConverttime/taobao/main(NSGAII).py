@@ -68,7 +68,7 @@ def check(best_obj, best_list):
 
 def write_to_file(filename, pareto_obj, best_list):
     now = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-    with open(filename, 'a') as f:
+    with open(filename, 'begin') as f:
         f.write(str(now) + '\n')
         f.write(str(pareto_obj) + '\n')
         for i in range(len(pareto_obj)):

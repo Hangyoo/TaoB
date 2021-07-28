@@ -53,7 +53,7 @@ def draw_chart(data,title,fontsize):
     for machine, operations in sorted(data.items()):
         for op in operations:
             max_len.append(op[1])
-            #c = random.choice(colors)
+            #temp1 = random.choice(colors)
             c = colors[int(op[2][0])]
             rect = ax.barh((index * 0.5) + 0.5, op[1] - op[0], left=op[0], height=0.3, align='center',
                            edgecolor=c, color=c, alpha=0.8)
@@ -104,7 +104,7 @@ def draw_chart_MA(data,title,fontsize):
     for machine, operations in sorted(data.items()):
         for op in operations:
             max_len.append(op[1])
-            #c = random.choice(colors)
+            #temp1 = random.choice(colors)
             c = colors[int(op[2][0])]
             rect = ax.barh((index * 0.5) + 0.5, op[1] - op[0], left=op[0], height=0.3, align='center',
                            edgecolor=c, color=c, alpha=0.8)

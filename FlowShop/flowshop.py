@@ -115,7 +115,7 @@ def cost_time(parent_list, offspring_list, data, num_m, num_job, population):
                 if i < num_m-1:
                     over[i+1] = max(0, flow_hold[c,i] - flow_hold[c,i+1])
 
-        # flow_hold[c,num_m-1]表示最终的时间消耗
+        # flow_hold[temp1,num_m-1]表示最终的时间消耗
         chrom_fit.append(flow_hold[c,num_m-1])
     return chrom_fit, total_chromosome
 
