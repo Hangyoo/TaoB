@@ -7,22 +7,10 @@ def record(chroms_obj_record,convergence,before_value):
         before_value[0] = f1
     convergence["makespan"].append(min(f1,before_value[0]))
 
-    # 记录每代最大机器负荷
+    # 记录每代最小成本
     f2 = min([item[1] for item in chroms_obj_record.values()])
     if f2 < before_value[1]:
         before_value[1] = f2
-    convergence["maxload"].append(min(f2,before_value[1]))
-
-    # 记录每代总设备负荷
-    f3 = min([item[2] for item in chroms_obj_record.values()])
-    if f3 < before_value[2]:
-        before_value[2] = f3
-    convergence["sumload"].append(min(f3,before_value[2]))
-
-    # 记录每代总成本
-    f4 = min([item[3] for item in chroms_obj_record.values()])
-    if f4 < before_value[3]:
-        before_value[3] = f4
-    convergence["cost"].append(min(f4, before_value[3]))
+    convergence["cost"].append(min(f2,before_value[1]))
 
     return convergence,before_value

@@ -60,18 +60,7 @@ class MyProblem(ea.Problem):  # 继承Problem父类
         popsize = Vars.shape[0]
         F1 = np.array([float("-Inf")] * popsize).reshape(popsize, 1)
         for i in range(popsize):
-            # 归一化到0-1之间
-            # depth = (Depth - min_depth)/(max_depth-min_depth)
-            # val1 = (Val1 - min_val1)/(max_val1-min_val1)
-            # val2 = (Val2 - min_val2)/(max_val2-min_val2)
-            # x1 = (Vars[i, [0]][0] - lb[0]) / (ub[0]-lb[0])
-            # x2 = (Vars[i, [1]][0] - lb[1]) / (ub[1]-lb[1])
-            # x3 = (Vars[i, [2]][0] - lb[2]) / (ub[2]-lb[2])
-            # x4 = (Vars[i, [3]][0] - lb[3]) / (ub[3]-lb[3])
-            # x5 = (Vars[i, [4]][0] - lb[4]) / (ub[4]-lb[4])
-            # x6 = (Vars[i, [5]][0] - lb[5]) / (ub[5]-lb[5])
-            # x7 = (Vars[i, [6]][0] - lb[6]) / (ub[6]-lb[6])
-            # x8 = (Vars[i, [7]][0] - lb[7]) / (ub[7]-lb[7])
+
             x1 = Vars[i, [0]][0]
             x2 = Vars[i, [1]][0]
             x3 = Vars[i, [2]][0]

@@ -1,5 +1,5 @@
 import math
-from TSP.GA import GA
+from VRP.GA import GA
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -10,7 +10,7 @@ for i in range(f.shape[0]):
     a ,b = f.iloc[i,[1,2]]
     citys.append((a ,b))
 
-class TSP(object):
+class VRP(object):
       def __init__(self, aLifeCount = 100):
             self.citys = citys # 记录城市信息
             self.lifeCount = aLifeCount
@@ -39,7 +39,7 @@ class TSP(object):
             for i in range(n):
                   self.ga.next()
                   distance = self.distance(self.ga.best.gene)
-                  print(f"当前迭代次数:{n},最短距离为：{round(distance,2)}")
+                  print(f"当前迭代次数:{i},最短距离为：{round(distance,2)}")
 
       def get_best_idividual(self):
           print(self.ga.best.gene)
@@ -60,9 +60,9 @@ def chart(line,citys):
 
 
 def main():
-      travel = TSP()
+      travel = VRP()
       # 这里设置迭代次数
-      travel.run(99)
+      travel.run(500)
       # 获取最优方案
       best_individual = travel.get_best_idividual()
       # 绘制图片

@@ -3,7 +3,7 @@ from TSP0417.Individual import *
 from TSP0417.TSP import *
 from TSP0417.Population import *
 import TSP0417.GA as ga
-from TSP0417.NSGA_II import *
+# from TSP0417.NSGA_II import *
 from TSP0417.Draw import *
 import warnings
 import pickle

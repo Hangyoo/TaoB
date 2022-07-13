@@ -1,6 +1,7 @@
 import geatpy as ea # import geatpy
 import numpy as np
 from nsga2_2_obj_20210131.problem import MyProblem
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     """===============================实例化问题对象============================"""
@@ -26,6 +27,7 @@ if __name__ == '__main__':
     """
     [NDSet, population] = myAlgorithm.run()  # 执行算法模板，得到非支配种群以及最后一代种群
     NDSet.save()  # 把非支配种群的信息保存到文件中
+
     """==================================输出结果=============================="""
     print('用时：%s 秒' % myAlgorithm.passTime)
     print('非支配个体数：%d 个' % NDSet.sizes) if NDSet.sizes != 0 else print('没有找到可行解！')

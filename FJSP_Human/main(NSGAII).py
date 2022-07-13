@@ -81,7 +81,7 @@ def check(best_obj, best_list):
 
 # 主函数运行
 if __name__ == '__main__':
-    patch = r'C:\Users\Hangyu\PycharmProjects\TaoB\FJSPMK\Benchmark\8_8.fjs'
+    patch = r'C:\Users\Hangyu\PycharmProjects\TaoB\FJSPMK\Benchmark\Mk07.fjs'
     parameters = readtext.Readtext(patch).readtext()
     # MC 原材料费用 [1,2,3,5,9,..] （等于工件个数）
     # MD 机器单位费率  [12,51,48，..] （等于机器个数）
@@ -97,8 +97,8 @@ if __name__ == '__main__':
     print(f'NSGAII运行时间:{end - start}s')
 
     # 保存目标函数值
-    with open(r'Data/data_NSGAII.pkl', "wb") as f:
-        pickle.dump(convergence, f)
+    # with open(r'Data/data_NSGAII.pkl', "wb") as f:
+    #     pickle.dump(convergence, f)
 
     # 保存运行结果
     # filename = 'NSGAII运行结果记录.txt'

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     myAlgorithm.MAXGEN = 50  # 最大进化代数
     myAlgorithm.logTras = 0  # 设置每多少代记录日志，若设置成0则表示不记录日志
     myAlgorithm.verbose = False  # 设置是否打印输出日志信息
-    myAlgorithm.drawing = 2  # 设置绘图方式（0：不绘图；1：绘制结果图；2：绘制目标空间过程动画；3：绘制决策空间过程动画）
+    myAlgorithm.drawing = 1  # 设置绘图方式（0：不绘图；1：绘制结果图；2：绘制目标空间过程动画；3：绘制决策空间过程动画）
     """==========================调用算法模板进行种群进化=========================
     调用run执行算法模板，得到帕累托最优解集NDSet以及最后一代种群。NDSet是一个种群类Population的对象。
     NDSet.ObjV为最优解个体的目标函数值；NDSet.Phen为对应的决策变量值。

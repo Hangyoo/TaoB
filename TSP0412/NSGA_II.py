@@ -1,6 +1,6 @@
 import numpy as np
 from TSP0412.Individual import *
-from TSP import *
+from VRP import *
 from TSP0412.Population import *
 import TSP0412.GA as ga
 from TSP0412.NSGA_II import *

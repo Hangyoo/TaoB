@@ -26,7 +26,7 @@ norm_dataset = norm(dataset)
 
 X_train,X_test,y_train,y_test = train_test_split(dataset,rop,random_state = 6,test_size=0.40)
 print(X_train.head())
-rf = RandomForestRegressor(n_estimators=100,random_state=60).fit(X_train, y_train)
+rf = SVR(n_estimators=100,random_state=60).fit(X_train, y_train)
 predictions_train= rf.predict(X_train)
 predictions_test=rf.predict(X_test)
 print("RF训练集得分:{}".format(rf.score(X_train, y_train)))

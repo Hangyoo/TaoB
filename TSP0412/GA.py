@@ -1,5 +1,5 @@
 from TSP0412.Individual import *
-from TSP import *
+from VRP import *
 from TSP0412.Population import *
 import numpy as np
 

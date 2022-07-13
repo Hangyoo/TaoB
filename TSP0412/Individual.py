@@ -1,5 +1,5 @@
 import numpy as np
-from TSP import *
+from VRP import *
 
 
 class Individual:
