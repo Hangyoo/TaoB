@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/TaoB.iml" filepath="$PROJECT_DIR$/.idea/TaoB.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../jMetal/.idea/jMetal.iml" filepath="$PROJECT_DIR$/../jMetal/.idea/jMetal.iml" />
     </modules>
   </component>
 </project>
